@@ -1,0 +1,33 @@
+Django-Todo Repository:
+GitHub URL: github.com/shreys7/django-todo.git
+  Step 1: Creating a Directory on Your AWS EC2 Instance
+Before we can start working with GitHub repositories, creating a dedicated directory on your AWS EC2 instance where you want to store your project files is a good practice. You can do this using the following commands:
+
+
+COPY
+mkdir project-directory
+cd project-directory
+Replace project-directory with a suitable name for your project directory.
+
+Step 2: Cloning GitHub Repositories
+Once you have your project directory set up, you can clone the GitHub repositories into it. Run the following commands for each repository:
+
+
+COPY
+
+git clone https://github.com/shreys7/django-todo.git
+These commands will fetch and store the repository code within your project directory on your AWS EC2 instance.
+  Dockerfile for Django-Todo (Django app):
+
+COPY
+
+
+
+FROM python:3
+
+RUN pip install django==3.2
+
+COPY . .
+RUN python manage.py migrate
+CMD ["python","manage.py","runserver","0.0.0.0:8080"]
+  
